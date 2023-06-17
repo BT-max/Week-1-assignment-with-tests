@@ -8,15 +8,16 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    const startTime = new Date();
+    const startTime = performance.now();
     let sum = 0;
-    for (let index = 1; index <= n ; index++){
+    for (let index = 1; index <= n; index++) {
         sum += index;
     }
-    const endTime = new Date();
-    return (endTime - startTime)/1000;
+    const endTime = performance.now();
+    const elapsedTime = (endTime - startTime) / 1000; // Convert to seconds
+    return elapsedTime.toFixed(6); // Round to 6 decimal places
 }
 
-console.log(`Time taken for Sum from 1-100 ${calculateTime(100)}`)
-console.log(`Time taken for Sum from 1-100000 ${calculateTime(100000)}`)
-console.log(`Time taken for Sum from 1-1000000000 ${calculateTime(1000000000)}`)
+console.log(`Time taken for Sum from 1-100: ${calculateTime(100)}`);
+console.log(`Time taken for Sum from 1-100000: ${calculateTime(100000)}`);
+console.log(`Time taken for Sum from 1-1000000000: ${calculateTime(1000000000)}`);
