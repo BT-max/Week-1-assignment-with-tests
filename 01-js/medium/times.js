@@ -8,5 +8,15 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const startTime = new Date();
+    let sum = 0;
+    for (let index = 1; index <= n ; index++){
+        sum += index;
+    }
+    const endTime = new Date();
+    return (endTime - startTime)/1000;
 }
+
+console.log(`Time taken for Sum from 1-100 ${calculateTime(100)}`)
+console.log(`Time taken for Sum from 1-100000 ${calculateTime(100000)}`)
+console.log(`Time taken for Sum from 1-1000000000 ${calculateTime(1000000000)}`)
